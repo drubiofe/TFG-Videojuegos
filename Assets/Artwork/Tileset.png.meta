@@ -178,70 +178,70 @@ TextureImporter:
     second: shadow
   - first:
       213: 6891894450384577634
-    second: Tileset_60
+    second: welltop_0
   - first:
       213: -7411026656216122260
-    second: Tileset_61
+    second: welltop_1
   - first:
       213: -7640177128574331439
-    second: Tileset_62
+    second: welltop_2
   - first:
       213: 657641356394417032
-    second: Tileset_63
+    second: wellbot_2
   - first:
       213: 2222912502455728431
-    second: Tileset_64
+    second: wellbot_1
   - first:
       213: -8153858807117855630
-    second: Tileset_65
+    second: wellbot_0
   - first:
       213: -6751042499064846838
-    second: Tileset_66
+    second: iceAbility
   - first:
       213: -6556136143214201346
-    second: Tileset_67
+    second: torch_0
   - first:
       213: 9223164898309109973
-    second: Tileset_68
+    second: torch_1
   - first:
       213: 9073897159159690263
-    second: Tileset_69
+    second: torch_2
   - first:
       213: -586981502950777654
-    second: Tileset_70
+    second: frostGiant_0
   - first:
       213: 8939761279874664397
-    second: Tileset_71
+    second: frostGiant_walk
   - first:
       213: 6807087307343196428
-    second: Tileset_72
+    second: frostGiant_1
   - first:
       213: 6688593573428802373
-    second: Tileset_73
+    second: frostGiantArm
   - first:
       213: 7408432812526453787
-    second: Tileset_74
+    second: frostGiant_death
   - first:
       213: -1410985319218432324
-    second: Tileset_75
+    second: healthBar
   - first:
       213: 8497863495447063480
-    second: Tileset_76
+    second: axe_0
   - first:
       213: 2414264509946502995
-    second: Tileset_77
+    second: fireAbility
   - first:
       213: 8738356976787645713
-    second: Tileset_78
+    second: wolf_idle
   - first:
       213: 2047358974194608997
-    second: Tileset_79
+    second: wolf_running_0
   - first:
       213: -3801876809758504960
-    second: Tileset_80
+    second: wolf_running_1
   - first:
       213: 1709865468434769203
-    second: Tileset_81
+    second: null
   - first:
       213: 6072792239224413943
     second: Tileset_82
@@ -2581,7 +2581,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tileset_67
+      name: torch_0
       rect:
         serializedVersion: 2
         x: 16
@@ -2602,7 +2602,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tileset_68
+      name: torch_1
       rect:
         serializedVersion: 2
         x: 32
@@ -2623,7 +2623,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tileset_69
+      name: torch_2
       rect:
         serializedVersion: 2
         x: 48
@@ -2639,27 +2639,6 @@ TextureImporter:
       bones: []
       spriteID: 714b3240465fced70800000000000000
       internalID: 9073897159159690263
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tileset_90
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 448
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6eb575a1df235b700800000000000000
-      internalID: 555406191700171750
       vertices: []
       indices: 
       edges: []
@@ -3051,7 +3030,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3059,6 +3038,405 @@ TextureImporter:
       bones: []
       spriteID: 21be454c109ae3d30800000000000000
       internalID: 4413150509923625746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: welltop_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 264a8a0ec7de4af50800000000000000
+      internalID: 6891894450384577634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: welltop_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c794f758eb62990800000000000000
+      internalID: -7411026656216122260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: welltop_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d553468163a8f590800000000000000
+      internalID: -7640177128574331439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wellbot_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88bce7d4459602900800000000000000
+      internalID: 657641356394417032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wellbot_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29f5abb42f59de10800000000000000
+      internalID: 2222912502455728431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wellbot_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274cc0dad9ca7de80800000000000000
+      internalID: -8153858807117855630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iceAbility
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 480
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06acab9d9a7f42a0800000000000000
+      internalID: -6751042499064846838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frostGiant_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: accd4eade6f9ad7f0800000000000000
+      internalID: -586981502950777654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frostGiant_walk
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc788b7e489601c70800000000000000
+      internalID: 8939761279874664397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frostGiant_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01f24d27d1a77e50800000000000000
+      internalID: 6807087307343196428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frostGiantArm
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5433f27da68a2dc50800000000000000
+      internalID: 6688593573428802373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frostGiant_death
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14ccf4346a00d660800000000000000
+      internalID: 7408432812526453787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBar
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb6b1b0f35c2b6ce0800000000000000
+      internalID: -1410985319218432324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: axe_0
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 432
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bba1e353d97ee570800000000000000
+      internalID: 8497863495447063480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireAbility
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 480
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f913dc7c0318120800000000000000
+      internalID: 2414264509946502995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolf_idle
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 115ebf16f51e44970800000000000000
+      internalID: 8738356976787645713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolf_running_0
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56be390c32ea96c10800000000000000
+      internalID: 2047358974194608997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolf_running_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0088c8a4f250d3bc0800000000000000
+      internalID: -3801876809758504960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: null
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335e2c39599aab710800000000000000
+      internalID: 1709865468434769203
       vertices: []
       indices: 
       edges: []

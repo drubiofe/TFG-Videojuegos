@@ -21,6 +21,9 @@ public abstract class Mobile : Damageable
         // Reset moveDelta
         moveDelta = new Vector3(input.x * xSpeed, input.y * ySpeed, 0);
 
+        // Normalize vector to prevent added up diagonal speed
+        moveDelta = moveDelta.normalized;
+
         // If character is moving, change sprite from idle to moving
         if (!moveDelta.magnitude.Equals(0))
             animator.SetFloat("Speed", 1);

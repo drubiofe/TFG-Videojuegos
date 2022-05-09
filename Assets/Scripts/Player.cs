@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : Mobile
 {
-    public string playerName;
+    public string playerName = "Godie";
     private bool isAlive = true;
 
     protected override void Start()
@@ -50,9 +50,12 @@ public class Player : Mobile
         hitPoint += hpGiven;
         // If health is above limit, set to max
         if (hitPoint > maxHP) hitPoint = maxHP;
+        // Show hp given
+        GameManager.instance.ShowText("+" + hpGiven + " hp", 30, Color.cyan, transform.position, Vector3.up * 50, 1f);
     }
     public void Respawn()
     {
+        GameManager.instance.ResetState();
         isAlive = true;
         GiveHP(maxHP);
         lastImmune = Time.time;

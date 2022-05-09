@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
 
     // References
     public Player player;
-    public Weapon weapon;
+    public WeaponHolder weapons;
+    public AbilityHolder[] abilityHolder;
     public FloatingTextManager floatingTextManager;
     public GameObject gameInterface;
     public Animator deathScreenAnim;
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
     public void Respawn()
     {
         deathScreenAnim.SetTrigger("Hide");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
         player.Respawn();
     }
 
@@ -124,5 +125,12 @@ public class GameManager : MonoBehaviour
         xp = int.Parse(data[1]);
         if(GetCurrentLevel() != 1)
         player.SetLevel(GetCurrentLevel());
+    }
+
+    public void ResetState()
+    {
+        string s = $"{0}|{xp}";
+
+        PlayerPrefs.SetString("SaveState", s);
     }
 }

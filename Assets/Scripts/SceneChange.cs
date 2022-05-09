@@ -9,11 +9,11 @@ public class SceneChange : Collidable
 
     protected override void OnCollide(Collider2D coll)
     {
-        if (coll.name == "player_0")
+        if (coll.name == "Player")
         {
             // Move the player to the new scene
-            GameManager.instance.SaveState();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            GameManager.instance.SaveState();
         }
     }
 }

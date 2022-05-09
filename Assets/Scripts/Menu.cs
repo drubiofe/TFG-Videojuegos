@@ -8,13 +8,18 @@ public class Menu : MonoBehaviour
 {
     // Text fields
     public Text playerNameMenu, levelText, hitpointText, xpText, weaponName, weaponDamage, weaponPush;
+    public Text[] powerName, powerDescription;
     public TextMeshProUGUI playerNameDeath;
 
     // Logic
     public static bool isPaused = false;
     public Animator menuAnim;
+    private AbilityHolder[] abilities;
+
+    // Visual fields
     public Image playerSprite;
     public Image weaponSprite;
+    public Image[] powerSprite;
     public RectTransform xpBar;
     public RectTransform healthBar;
 
@@ -33,6 +38,9 @@ public class Menu : MonoBehaviour
                 ResumeGame();
             }
         }
+        // Always update weapon stats because the weapon can be changed from menu
+        WeaponUpdate();
+        abilities = GameManager.instance.player.GetComponents<AbilityHolder>();
     }
 
     // Update info
@@ -40,12 +48,6 @@ public class Menu : MonoBehaviour
     {
         // Player name
         playerNameMenu.text = playerNameDeath.text = GameManager.instance.player.playerName;
-
-        // Weapon
-        weaponName.text = GameManager.instance.weapon.weaponName;
-        weaponSprite.sprite = GameManager.instance.weaponSprites[0];
-        weaponDamage.text = GameManager.instance.weapon.damagePoint.ToString();
-        weaponPush.text = GameManager.instance.weapon.pushForce.ToString();
 
         // Meta
         hitpointText.text = GameManager.instance.player.hitPoint.ToString();
@@ -78,7 +80,34 @@ public class Menu : MonoBehaviour
             xpBar.localScale = new Vector3(completionRatioXp, 1, 1);
             xpText.text = currentXpBar.ToString() + "/" + XpDiff;
         }
+
+        // Powers
+        for (int i = 0; i <= 2; i++)
+        {
+            if (abilities[i].ability != null)
+            {
+                powerName[i].text = abilities[i].ability.name.ToString();
+                powerDescription[i].text = abilities[i].ability.description.ToString();
+                powerSprite[i].sprite = abilities[i].ability.sprite;
+                powerSprite[i].color = new Color(1f, 1f, 1f, 1f);
+            }
+            else
+            {
+                powerName[i].text = "".ToString();
+                powerDescription[i].text = "".ToString();
+                powerSprite[i].color = new Color(0f, 0f, 0f, 0f);
+            }
+        }
     }
+
+    private void WeaponUpdate()
+    {
+        weaponName.text = GameManager.instance.weapons.currentWeapon.weaponName;
+        weaponSprite.sprite = GameManager.instance.weapons.currentWeapon.spriteRenderer.sprite;
+        weaponDamage.text = GameManager.instance.weapons.currentWeapon.damagePoint.ToString();
+        weaponPush.text = GameManager.instance.weapons.currentWeapon.pushForce.ToString();
+    }
+
     private void PauseGame()
     {
         menuAnim.SetTrigger("Show");

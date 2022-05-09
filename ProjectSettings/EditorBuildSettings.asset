@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/SplashScreen.unity
     guid: 079ed6c8978e4044bbeb1fa0f9c4e78c
   - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 78872db08d7cd7848a33b4067339df37
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: b28252d0566fcf748a198c239293ae07
+  - enabled: 1
+    path: Assets/Scenes/BossLevel.unity
+    guid: 6a83fde6c7d12ce469daa4581d2ea7d8
+  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: ede8467fb7a2a334aacab1592122f491
-  - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 00ed7b73bad2bff468bd2782c644f68a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
