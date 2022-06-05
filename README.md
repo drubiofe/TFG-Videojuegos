@@ -9,6 +9,9 @@ Instalación del juego:
 Controles:
 
 W,A,S,D para el movimiento
+
 Barra Espaciadora para blandir arma
+
 R,F,V para utilizar los poderes
+
 Escape (Esc) para abrir el menú de pausa
