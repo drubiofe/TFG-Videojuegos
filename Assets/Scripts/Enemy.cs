@@ -8,77 +8,108 @@ public class Enemy : Mobile
     public int xpValue = 1;
 
     //Logic
-    public float triggerLength = 1;
-    public float chaseLength = 5;
-    private bool chasing;
-    private bool collidingWithPlayer;
+    public string enemyType;
+    public float speed = 0.8f;
+    public float detectionRange = 1;
+    public float chaseRange = 1.5f;
     private Transform playerTransform;
-    private Vector3 startingPosition;
-
-    // Hitbox
-    private ContactFilter2D filter;
-    private BoxCollider2D hitbox;
-    private Collider2D[] hits = new Collider2D[10];
+    private Vector2 startingPosition;
+    private bool isFlipped = false;
+    public GameObject deathEffect;
+    private Rigidbody2D rb;
 
     protected override void Start()
     {
         base.Start();
-        xSpeed = 0.75f;
-        ySpeed = 0.6f;
         playerTransform = GameManager.instance.player.transform;
         startingPosition = transform.position;
-        hitbox = transform.GetChild(0).GetComponent<BoxCollider2D>();
+        rb = transform.GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
     {
-        // Check if player is in range of enemy
-        if(Vector3.Distance(playerTransform.position, startingPosition) < chaseLength)
+        // Change sprite animation depending on enemy movement
+        if (rb.velocity.x.Equals(0) && rb.velocity.y.Equals(0))
         {
-            if (Vector3.Distance(playerTransform.position, startingPosition) < triggerLength)
-                chasing = true;
-
-            if (chasing)
-            {
-                if (!collidingWithPlayer)
-                {
-                    // Enemy moves towards player (if not colliding)
-                    UpdateMotor((playerTransform.position - transform.position).normalized);
-                }
-            }
-            else
-            {
-                // When chase stops, enemy moves towards starting position and has idle animation
-                UpdateMotor(startingPosition - transform.position);
-                animator.SetFloat("Speed", 0);
-            }
+            animator.SetBool("Moving", false);
         }
-        else
+        else animator.SetBool("Moving", true);
+
+        // Swap sprite direction
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
+
+        if (rb.velocity.x > 0 && isFlipped)
         {
-            UpdateMotor(startingPosition - transform.position);
-            chasing = false;
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = false;
+        }
+        else if (rb.velocity.x < 0 && !isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = true;
         }
 
-        // Check overlaps
-        collidingWithPlayer = false;
-        boxCollider.OverlapCollider(filter, hits);
-        for (int i = 0; i < hits.Length; i++)
+        if (moveDelta.x > 0)
+            transform.localScale = Vector3.one;
+        else if (moveDelta.x < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+
+        // Check if player is in range of enemy and start chase
+        if (Vector2.Distance(playerTransform.position, rb.position) < detectionRange)
         {
-            if (hits[i] == null)
-                continue;
+            Vector2 playerDirection = ((Vector2)playerTransform.position - rb.position).normalized;
+            rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * speed;
+        }
 
-           if(hits[i].tag == "Player")
-            {
-                collidingWithPlayer = true;
-            }
-
-            // Clean up the array
-            hits[i] = null;
+        // If player escaped enemy, enemey returns to its starting position
+        if (Vector2.Distance(playerTransform.position, rb.position) > chaseRange)
+        {
+            Vector2 moveToStart = Vector2.MoveTowards(transform.position, startingPosition, Time.deltaTime * speed);
+            rb.MovePosition(moveToStart);
         }
     }
+
+    protected override void ReceiveDamage(Damage dmg)
+    {
+        base.ReceiveDamage(dmg);
+        AudioManager.PlayClipStatic(enemyType + "Damage");
+    }
+
     protected override void Death()
     {
+        AudioManager.PlayClipStatic(enemyType + "Death");
+        GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 0.5f);
         Destroy(gameObject);
         GameManager.instance.GrantXp(xpValue);
         GameManager.instance.ShowText("+" + xpValue + " xp", 30, Color.green, transform.position, Vector3.up * 50, 1f);
+    }
+
+    protected virtual void ChangeSpeed(float value)
+    {
+        speed *= value;
+    }
+
+    IEnumerator IceEffect()
+    {
+        ChangeSpeed(0.5f);
+        GameManager.instance.ShowText("Speed reduced!", 30, Color.cyan, transform.position, Vector3.up * 50, 1f);
+        yield return new WaitForSeconds(5.0f);
+        ChangeSpeed(2f);
+        GameManager.instance.ShowText("Enemy unfroze!", 30, Color.cyan, transform.position, Vector3.up * 50, 1f);
+    }
+
+    IEnumerator FireEffect(Damage dmg)
+    {
+        GameManager.instance.ShowText("Enemy is burning!", 30, Color.red, transform.position, Vector3.up * 50, 1f);
+        ReceiveDamage(dmg);
+        yield return new WaitForSeconds(1.0f);
+        ReceiveDamage(dmg);
+        yield return new WaitForSeconds(1.0f);
+        ReceiveDamage(dmg);
+        yield return new WaitForSeconds(1.0f);
+        ReceiveDamage(dmg);
     }
 }

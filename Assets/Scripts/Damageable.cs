@@ -24,7 +24,7 @@ public class Damageable : MonoBehaviour
             hitPoint -= dmg.damageAmount;
             pushDirection = (transform.position - dmg.origin).normalized * dmg.pushForce;
 
-            GameManager.instance.ShowText(dmg.damageAmount.ToString(), 35, customRed, transform.position, Vector3.up * 50, 0.5f);
+            GameManager.instance.ShowText("-" + dmg.damageAmount.ToString() + " hp", 35, Color.red, transform.position, Vector3.up * 50, 0.5f);
 
             if(hitPoint <= 0)
             {

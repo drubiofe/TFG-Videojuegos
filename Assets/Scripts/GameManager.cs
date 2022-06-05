@@ -30,17 +30,16 @@ public class GameManager : MonoBehaviour
 
     // References
     public Player player;
-    public Weapon weapon;
+    public WeaponHolder weapons;
+    public AbilityHolder[] abilityHolder;
     public FloatingTextManager floatingTextManager;
     public GameObject gameInterface;
     public Animator deathScreenAnim;
 
     // Tracker
-    private int savedLevel;
+    private int savedLevel = 1;
     public int xp;
-
-    // Change weapon
-    // TODO
+    public bool bossBeaten = false;
 
     // Experience system
     public int GetCurrentLevel()
@@ -87,8 +86,9 @@ public class GameManager : MonoBehaviour
     // Death screen
     public void Respawn()
     {
+        AudioManager.PlayClipStatic("Click");
         deathScreenAnim.SetTrigger("Hide");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
         player.Respawn();
     }
 
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
     public void SaveState()
     {
         savedLevel = SceneManager.GetActiveScene().buildIndex+1;
-        string s = $"{savedLevel}|{xp}";
+        string s = $"{savedLevel}|{xp}|{bossBeaten}";
 
         PlayerPrefs.SetString("SaveState", s);
     }
@@ -124,5 +124,27 @@ public class GameManager : MonoBehaviour
         xp = int.Parse(data[1]);
         if(GetCurrentLevel() != 1)
         player.SetLevel(GetCurrentLevel());
+
+        // Boss beaten check
+        bossBeaten = bool.Parse(data[2]);
+    }
+
+    public void ResetState()
+    {
+        string s = $"{0}|{xp}|{bossBeaten}";
+
+        PlayerPrefs.SetString("SaveState", s);
+    }
+
+    public void ResetXp()
+    {
+        savedLevel = 1;
+        xp = 0;
+        bossBeaten = false;
+        string s = $"{savedLevel}|{xp}|{bossBeaten}";
+        player.hitPoint = 10;
+        player.maxHP = 10;
+
+        PlayerPrefs.SetString("SaveState", s);
     }
 }

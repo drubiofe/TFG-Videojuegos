@@ -11,8 +11,8 @@ public class Weapon : Collidable
     public int damagePoint = 1;
     public float pushForce = 2.0f;
 
-    // Weapon upgrade
-    public int weaponLevel = 0;
+    // Weapon Level Unlocked
+    public int weaponLevel = 1;
     public SpriteRenderer spriteRenderer;
 
     // Swing
@@ -60,13 +60,6 @@ public class Weapon : Collidable
     private void Swing()
     {
         weaponAnim.SetTrigger("Swing");
-    }
-
-    public void ChangeWeapon()
-    {
-        //TODO
-        spriteRenderer.sprite = GameManager.instance.weaponSprites[0];
-
-        // Change stats 
+        AudioManager.PlayClipStatic("Sword");
     }
 }

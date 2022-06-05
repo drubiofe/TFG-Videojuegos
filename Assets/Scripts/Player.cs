@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player : Mobile
 {
-    public string playerName;
-    private bool isAlive = true;
+    public string playerName = "Godie";
+    [HideInInspector]
+    public bool isAlive = true;
 
     protected override void Start()
     {
@@ -17,7 +18,9 @@ public class Player : Mobile
         // If player is death, can't receive damage
         if (!isAlive) return;
         base.ReceiveDamage(dmg);
+        AudioManager.PlayClipStatic("PlayerDamage");
     }
+
     protected override void Death()
     {
         isAlive = false;
@@ -50,12 +53,16 @@ public class Player : Mobile
         hitPoint += hpGiven;
         // If health is above limit, set to max
         if (hitPoint > maxHP) hitPoint = maxHP;
+        // Show hp given
+        GameManager.instance.ShowText("+" + hpGiven + " hp", 30, Color.cyan, transform.position, Vector3.up * 50, 1f);
     }
     public void Respawn()
     {
+        GameManager.instance.ResetState();
         isAlive = true;
         GiveHP(maxHP);
         lastImmune = Time.time;
         pushDirection = Vector3.zero;
+        gameObject.SetActive(false);
     }
 }
