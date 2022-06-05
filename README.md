@@ -1,7 +1,10 @@
 # TFG-Videojuegos
 TFG del grado de Ingeniería Informática (UOC)
 
-Para ejecutar el juego, abrir la carpeta Binaries y ejecutar el programa GodSlayer.exe
+Instalación del juego:
+1. Descargar God.Slayer.7z de Gold Master
+2. Descomprimir en el lugar deseado
+3. Ejecutar God Slayer.exe
 
 Controles:
 
